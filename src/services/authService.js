@@ -1,5 +1,6 @@
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+
 class AuthService {
   constructor() {
     this.form = document.getElementById('login_form');
@@ -17,7 +18,7 @@ class AuthService {
     const isCredentialsCorrect = await this.validateSignIn();
 
     if (isCredentialsCorrect) {
-      location.href += "pages/home.html"
+      location.href = "pages/home.html"
     }
   }
 
@@ -33,8 +34,7 @@ class AuthService {
         console.log(user);
     } catch (error) {
         isCorrect = false;
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        console.log(error);
     }
 
     return isCorrect;
